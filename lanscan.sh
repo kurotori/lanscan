@@ -26,6 +26,8 @@ t_actual=$(date +%s)
 fecha=$(date +%d-%m-%Y)
 hora=$(date +%H-%M)
 t_reg=0
+version=1
+fecha_v="08_2022"
 
 if [ -s ./aux/tiempo_reg.txt ]
 then
@@ -61,7 +63,7 @@ banner()
 {	
 	clear
 	printf "%1s\n" "${BRIGHT}----------------------------------------------${NORMAL}"
-	printf "%1s\n" "${LIME_YELLOW}                 Escaneo Remoto v1${NORMAL}"
+	printf "%1s\n" "${LIME_YELLOW}                 Escaneo Remoto v${version}${NORMAL}"
 	printf "%1s\n" "${BRIGHT}-- $fecha ----------------------- $hora --${NORMAL}"
 	echo ""
 	
@@ -101,7 +103,7 @@ while  [ $opcion -ne 0 ]
 			echo "No es necesario buscar en la red..."
 			echo "...a no ser que tenga problemas."
 			echo ""
-			printf "%1s\n" "${YELLOW}¿Buscar de todas maneras?${NORMAL}"
+			printf "%1s\n" "${YELLOW}¿Buscar en la red de todas maneras?${NORMAL}"
 			echo ""
 			echo "Si - Presione S y ENTER"
 			echo "No - Presione N y ENTER"
@@ -120,6 +122,11 @@ while  [ $opcion -ne 0 ]
 					;;
 			esac
 		else
+			banner
+			printf "%1s\n" "${WHITE}-----------------${NORMAL}"
+			printf "%1s\n" "${LIME_YELLOW}    Escaneo de Red${NORMAL}"
+			printf "%1s\n" "${WHITE}-----------------${NORMAL}"
+			echo ""
 			echo "Rango de red local: $ip_rango"
 			echo "Ubicando la PC con el escaner: $mac_disp"
 			buscar_h "$ip_rango" & PID=$! #simulate a long process
@@ -176,6 +183,16 @@ then
 
         read opcion
         case $opcion in
+
+			[Aa])
+				banner
+				echo "LanScan versión ${version}, ${fecha_v}"
+				echo "Desarrollado por el docente Luis Sebastián de los Ángeles"
+				echo ""
+				echo "Todo el código de esta aplicación se encuentra bajo licencia MIT"
+				echo ""
+				read ok
+				;;
 			
 			[Pp])
                 banner
@@ -400,14 +417,16 @@ else
 	opcion=1
 	while  [ $opcion -ne 0 ]
 	do
-		banner		
-		echo "ERROR: No pudo ubicar la PC con el escaner en la red local."
-		echo "Verifique si se encuentra encendida."
+		banner
+
+		printf "%1s\n" "${RED}    ERROR: No pudo ubicar la PC con el escaner en la red local.${NORMAL}"
+		printf "%1s\n" "${YELLOW}    Verifique si se encuentra encendida.${NORMAL}"
 		echo ""		
-		echo "¿Desea repetir la búsqueda?" 
-		echo "Seleccione una opción y luego presione ENTER"
-		echo "   SI                        - Presione S"
-		echo "   NO (y salir del programa) - Presione N"
+		echo "    ¿Desea repetir la búsqueda?" 
+		echo "    Seleccione una opción y luego presione ENTER"
+		echo ""
+		echo "    SI                        - Presione S"
+		echo "    NO (y salir del programa) - Presione N"
 		read opcion
 		case $opcion in
 			[Ss])
@@ -423,7 +442,7 @@ else
 		esac
 	done
 fi
-
+clear
 
 
 

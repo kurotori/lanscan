@@ -1,12 +1,98 @@
-? (172.16.2.105) en b8:ae:ed:f3:08:f8 [ether] en enp2s0
-? (172.16.2.102) en bc:5f:f4:b1:11:0c [ether] en enp2s0
-? (172.16.2.111) en 70:85:c2:4a:90:2d [ether] en enp2s0
-? (172.16.2.10) en 00:15:99:62:fb:71 [ether] en enp2s0
-? (172.16.2.108) en 74:27:ea:3d:57:31 [ether] en enp2s0
-? (172.16.2.100) en 1c:39:47:00:34:62 [ether] en enp2s0
-? (172.16.2.101) en b8:ae:ed:f3:0a:6f [ether] en enp2s0
-? (172.16.2.106) en bc:5f:f4:b1:11:2a [ether] en enp2s0
-? (172.16.2.1) en a4:2b:b0:b2:9d:7c [ether] en enp2s0
-? (172.16.2.120) en 00:21:5a:21:ae:e6 [ether] en enp2s0
-? (172.16.2.104) en 74:27:ea:3d:8f:da [ether] en enp2s0
-? (172.16.2.121) en 74:27:ea:3d:55:00 [ether] en enp2s0
+? (10.11.119.110) en <incompleto> en wlp3s0
+? (10.11.116.130) en <incompleto> en wlp3s0
+? (10.11.117.119) en <incompleto> en wlp3s0
+? (10.11.118.221) en <incompleto> en wlp3s0
+? (10.11.116.176) en <incompleto> en wlp3s0
+? (10.11.116.74) en <incompleto> en wlp3s0
+? (10.11.119.1) en <incompleto> en wlp3s0
+? (10.11.116.174) en <incompleto> en wlp3s0
+? (10.11.118.56) en <incompleto> en wlp3s0
+? (10.11.116.219) en <incompleto> en wlp3s0
+? (10.11.119.213) en <incompleto> en wlp3s0
+? (10.11.118.22) en <incompleto> en wlp3s0
+? (10.11.117.87) en <incompleto> en wlp3s0
+? (10.11.119.57) en <incompleto> en wlp3s0
+? (10.11.116.109) en <incompleto> en wlp3s0
+? (10.11.118.168) en <incompleto> en wlp3s0
+? (10.11.118.55) en <incompleto> en wlp3s0
+? (10.11.117.112) en <incompleto> en wlp3s0
+? (10.11.117.31) en <incompleto> en wlp3s0
+? (10.11.118.255) en b8:3b:cc:d9:25:12 [ether] en wlp3s0
+? (10.11.117.56) en <incompleto> en wlp3s0
+? (10.11.118.78) en <incompleto> en wlp3s0
+? (10.11.117.1) en <incompleto> en wlp3s0
+? (10.11.118.111) en <incompleto> en wlp3s0
+? (10.11.117.55) en <incompleto> en wlp3s0
+? (10.11.118.179) en <incompleto> en wlp3s0
+? (10.11.119.214) en <incompleto> en wlp3s0
+? (10.11.118.23) en <incompleto> en wlp3s0
+? (10.11.117.80) en <incompleto> en wlp3s0
+? (10.11.117.113) en <incompleto> en wlp3s0
+? (10.11.117.78) en <incompleto> en wlp3s0
+? (10.11.118.35) en <incompleto> en wlp3s0
+? (10.11.119.16) en ee:c0:e2:5a:3d:7b [ether] en wlp3s0
+? (10.11.118.181) en <incompleto> en wlp3s0
+? (10.11.118.247) en 22:c2:ca:b3:16:54 [ether] en wlp3s0
+? (10.11.117.223) en 20:7c:8f:22:4c:14 [ether] en wlp3s0
+? (10.11.119.115) en <incompleto> en wlp3s0
+? (10.11.118.91) en <incompleto> en wlp3s0
+? (10.11.119.72) en <incompleto> en wlp3s0
+? (10.11.117.202) en <incompleto> en wlp3s0
+? (10.11.118.16) en <incompleto> en wlp3s0
+? (10.11.119.59) en 8e:1d:60:88:40:e1 [ether] en wlp3s0
+? (10.11.116.179) en <incompleto> en wlp3s0
+? (10.11.119.84) en 1e:1a:5b:f7:4b:71 [ether] en wlp3s0
+? (10.11.117.79) en <incompleto> en wlp3s0
+? (10.11.119.17) en <incompleto> en wlp3s0
+? (10.11.116.2) en 70:c9:c6:01:0a:a0 [ether] en wlp3s0
+? (10.11.116.48) en <incompleto> en wlp3s0
+? (10.11.117.91) en <incompleto> en wlp3s0
+? (10.11.118.72) en <incompleto> en wlp3s0
+? (10.11.118.215) en <incompleto> en wlp3s0
+? (10.11.117.16) en <incompleto> en wlp3s0
+? (10.11.118.240) en 20:32:6c:16:3d:c9 [ether] en wlp3s0
+? (10.11.118.159) en <incompleto> en wlp3s0
+? (10.11.118.17) en <incompleto> en wlp3s0
+? (10.11.118.71) en <incompleto> en wlp3s0
+? (10.11.116.58) en <incompleto> en wlp3s0
+? (10.11.118.238) en 74:15:75:63:73:55 [ether] en wlp3s0
+? (10.11.116.37) en <incompleto> en wlp3s0
+? (10.11.118.217) en <incompleto> en wlp3s0
+? (10.11.118.15) en <incompleto> en wlp3s0
+? (10.11.118.150) en <incompleto> en wlp3s0
+? (10.11.117.215) en <incompleto> en wlp3s0
+? (10.11.116.116) en <incompleto> en wlp3s0
+? (10.11.119.218) en <incompleto> en wlp3s0
+? (10.11.119.8) en 52:27:9a:b2:b5:e8 [ether] en wlp3s0
+? (10.11.118.152) en <incompleto> en wlp3s0
+? (10.11.117.217) en <incompleto> en wlp3s0
+? (10.11.117.15) en <incompleto> en wlp3s0
+? (10.11.117.150) en <incompleto> en wlp3s0
+? (10.11.117.196) en <incompleto> en wlp3s0
+? (10.11.119.53) en <incompleto> en wlp3s0
+? (10.11.116.159) en <incompleto> en wlp3s0
+? (10.11.118.197) en <incompleto> en wlp3s0
+? (10.11.118.130) en <incompleto> en wlp3s0
+? (10.11.119.119) en <incompleto> en wlp3s0
+? (10.11.116.28) en <incompleto> en wlp3s0
+? (10.11.118.176) en <incompleto> en wlp3s0
+? (10.11.119.98) en fc:19:99:df:76:7d [ether] en wlp3s0
+? (10.11.117.85) en <incompleto> en wlp3s0
+? (10.11.119.63) en 1c:cc:d6:96:62:e6 [ether] en wlp3s0
+? (10.11.118.220) en <incompleto> en wlp3s0
+? (10.11.118.242) en fc:19:99:df:5e:50 [ether] en wlp3s0
+? (10.11.118.153) en <incompleto> en wlp3s0
+? (10.11.118.32) en <incompleto> en wlp3s0
+? (10.11.117.197) en <incompleto> en wlp3s0
+? (10.11.116.6) en <incompleto> en wlp3s0
+? (10.11.119.221) en <incompleto> en wlp3s0
+? (10.11.116.39) en <incompleto> en wlp3s0
+? (10.11.119.33) en <incompleto> en wlp3s0
+? (10.11.119.87) en 50:76:af:03:14:c5 [ether] en wlp3s0
+? (10.11.117.7) en <incompleto> en wlp3s0
+? (10.11.118.109) en <incompleto> en wlp3s0
+? (10.11.117.174) en <incompleto> en wlp3s0
+? (10.11.117.220) en <incompleto> en wlp3s0
+? (10.11.119.166) en <incompleto> en wlp3s0
+? (10.11.116.51) en <incompleto> en wlp3s0
+? (10.11.119.99) en f4:b3:01:9a:cd:88 [ether] en wlp3s0
