@@ -1,0 +1,32 @@
+#!/bin/bash
+clear
+
+# script de inicio acá  #
+
+# # # # # # # # # # # # #
+
+mac_disp=$(cat ./dispositivo.txt)
+echo "Obteniendo los parámetros de la red..."
+echo "Por favor espere..."
+ip_local=$(ip addr |sed -e 's/^[ \t]*//'| grep -e "inet[^6]"|cut -d" " -f2|grep -v 127.0.0.1)
+ip_parte1=$(echo $ip_local|cut -d"." -f1,2,3)
+ip_parte2=$(echo $ip_local|cut -d"/" -f2)
+ip_rango="$ip_parte1.0/$ip_parte2"
+echo "Rango de red local: $ip_rango"
+echo "Ubicando el dispositivo $mac_disp"
+echo "Por favor espere..."
+
+ip_disp=$(nmap -sP $ip_rango >/dev/null && arp -an | grep $mac_disp | awk '{print $2}' | sed 's/[()]//g')
+
+echo "El dispositivo tiene la IP: $ip_disp"
+echo "Abriendo aplicación de escaneo..."
+simple-scan net:$ip_disp
+clear
+echo "Presione ENTER para cerrar esta ventana"
+read ok
+disown
+
+PPPID=$(awk '{print $4}' "/proc/$PPID/stat")
+kill $PPPID
+
+    
