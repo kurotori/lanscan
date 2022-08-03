@@ -61,6 +61,9 @@ UNDERLINE=$(tput smul)
 #----
 banner()
 {	
+	t_actual=$(date +%s)
+	fecha=$(date +%d-%m-%Y)
+	hora=$(date +%H-%M)
 	clear
 	printf "%1s\n" "${BRIGHT}----------------------------------------------${NORMAL}"
 	printf "%1s\n" "${LIME_YELLOW}                 Escaneo Remoto v${version}${NORMAL}"
@@ -184,16 +187,33 @@ then
         read opcion
         case $opcion in
 
-			[Aa])
+			[Ii])
 				banner
-				echo "LanScan versión ${version}, ${fecha_v}"
-				echo "Desarrollado por el docente Luis Sebastián de los Ángeles"
+				printf "%1s\n" "${LIME_YELLOW}    Escaneo Remoto LanScan, versión ${version}, ${fecha_v}${NORMAL}"
+				echo "    Desarrollado por el docente Luis Sebastián de los Ángeles" 
+				echo "              (https://github.com/kurotori/lanscan)"
 				echo ""
-				echo "Todo el código de esta aplicación se encuentra bajo licencia MIT"
+				echo "    Todo el código de esta aplicación se encuentra bajo licencia MIT"
 				echo ""
+				echo "    Presione L y enter para ver el texto de la licencia."
+				echo "    Presione ENTER para volver al menú principal"
 				read ok
+
+				case $ok in
+					[Ll])
+						$(xdg-open ./LICENSE)
+						;;
+					*)
+						;;
+				esac
+
+				opcion=1
 				;;
-			
+			[Aa])
+				xdg-open "./escaneos"
+				opcion=1
+				;;
+
 			[Pp])
                 banner
                 echo "Se generará un escaneo rápido de vista previa."
@@ -359,31 +379,61 @@ then
 					esac						
 				done
 				
-				banner
-				printf "%1s\n" "${BRIGHT}    Escaneo de página completa${NORMAL}"
-				printf "%1s\n" "${BRIGHT}    Modo: $modoE  Resolución: $res ppp ${NORMAL}"
-				#if [ -z "$pref" ]
-				#then
-					printf "%1s\n" "${BRIGHT}    Prefijo del nombre de archivo: $pref ${NORMAL}"
-				#fi					
-				echo ""
-				printf "%1s\n" "${RED}Presione ENTER para comenzar${NORMAL}"                
-				echo ""
-                read ok
-				echo "Por favor espere..."
-                
-                echo "Limpiando directorios de previsualización remotos y locales..."
-                rm ./prev/*
-                ssh -oStrictHostKeyChecking=no usuario@$ip_h "rm /home/usuario/escaneos/*.pnm"
-                echo "Escaneando..."                
-								
-				archivo="$fecha-$hora-$t_actual"
-                ssh usuario@$ip_h "scanimage --progress --mode '$modoE' --resolution '$res'>/home/usuario/escaneos/$archivo.pnm"
-                echo "Convirtiendo y obteniendo imágenes..."
-                ssh usuario@$ip_h "convert /home/usuario/escaneos/$archivo.pnm /home/usuario/escaneos/$archivo.png"
-                scp usuario@$ip_h:"/home/usuario/escaneos/$archivo.png" "./escaneos/$pref-$archivo.png"
-				xdg-open "./escaneos/$pref-$archivo.png"
-				
+				repetir=0
+				while  [ $repetir -eq 0 ]
+				do
+					banner
+					printf "%1s\n" "${BRIGHT}    Escaneo de página completa${NORMAL}"
+					printf "%1s\n" "${BRIGHT}    Modo: $modoE  Resolución: $res ppp ${NORMAL}"
+					#if [ -z "$pref" ]
+					#then
+						printf "%1s\n" "${BRIGHT}    Prefijo del nombre de archivo: $pref ${NORMAL}"
+					#fi					
+					echo ""
+					printf "%1s\n" "${RED}Presione ENTER para comenzar${NORMAL}"                
+					echo ""
+					read ok
+					echo "Por favor espere..."
+					
+					echo "Limpiando directorios de previsualización remotos y locales..."
+					rm ./prev/*
+					ssh -oStrictHostKeyChecking=no usuario@$ip_h "rm /home/usuario/escaneos/*.pnm"
+					echo "Escaneando..."                
+									
+					archivo="$fecha-$hora-$t_actual"
+					ssh usuario@$ip_h "scanimage --progress --mode '$modoE' --resolution '$res'>/home/usuario/escaneos/$archivo.pnm"
+					echo "Convirtiendo y obteniendo imágenes..."
+					ssh usuario@$ip_h "convert /home/usuario/escaneos/$archivo.pnm /home/usuario/escaneos/$archivo.png"
+					scp usuario@$ip_h:"/home/usuario/escaneos/$archivo.png" "./escaneos/$pref-$archivo.png"
+					xdg-open "./escaneos/$pref-$archivo.png"
+					
+					#Escaneo completo y confirmación de repetición
+					conf=0
+					while  [ $conf -eq 0 ]
+					do
+						banner
+						printf "%1s\n" "${BRIGHT}    Escaneo Completo ${NORMAL}"
+						echo ""
+						printf "%1s\n" "${BRIGHT}    ¿Desea realizar otro escaneo con la misma configuración? ${NORMAL}"
+						echo "    Si - Presione S y ENTER"
+						echo "    No - Presione N y ENTER"
+						read conf
+						case in $conf
+							[sS])
+								repetir=0
+								conf=1
+								;;
+							[nN])
+								repetir=1
+								conf=1
+								;;
+							*)
+								conf=0
+								;;
+						esac
+					done
+					
+				done	
 
 				opcion=1
 				;;
