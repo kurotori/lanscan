@@ -84,8 +84,8 @@ buscar_h()
 # # # # # # # # # # # # # # # 
 banner
 mac_disp=$(cat ./dispositivo.txt)
-echo "Obteniendo los parámetros de la red..."
-echo "Por favor espere..."
+echo "    Obteniendo los parámetros de la red..."
+echo "    Por favor espere..."
 ip_local=$(ip addr |sed -e 's/^[ \t]*//'| grep -e "inet[^6]"|cut -d" " -f2|grep -v 127.0.0.1)
 ip_parte1=$(echo $ip_local|cut -d"." -f1,2,3)
 ip_parte2=$(echo $ip_local|cut -d"/" -f2)
@@ -101,15 +101,15 @@ while  [ $opcion -ne 0 ]
 		echo ""
 		if [ $ult_reg -le 86400 ]
 		then
-			printf "%1s\n" "${RED}ATENCIÓN:${NORMAL}"
-			echo "El último registro de uso es de hace menos de 24 horas."
-			echo "No es necesario buscar en la red..."
-			echo "...a no ser que tenga problemas."
+			printf "%1s\n" "${RED}    ATENCIÓN:${NORMAL}"
+			echo "    El último registro de uso es de hace menos de 24 horas."
+			echo "    No es necesario buscar en la red..."
+			echo "    ...a no ser que tenga problemas."
 			echo ""
-			printf "%1s\n" "${YELLOW}¿Buscar en la red de todas maneras?${NORMAL}"
+			printf "%1s\n" "${YELLOW}    ¿Buscar en la red de todas maneras?${NORMAL}"
 			echo ""
-			echo "Si - Presione S y ENTER"
-			echo "No - Presione N y ENTER"
+			echo "    Si - Presione S y ENTER"
+			echo "    No - Presione N y ENTER"
 			read opcion
 			case $opcion in
 				[Ss])
@@ -130,10 +130,10 @@ while  [ $opcion -ne 0 ]
 			printf "%1s\n" "${LIME_YELLOW}    Escaneo de Red${NORMAL}"
 			printf "%1s\n" "${WHITE}-----------------${NORMAL}"
 			echo ""
-			echo "Rango de red local: $ip_rango"
-			echo "Ubicando la PC con el escaner: $mac_disp"
+			echo "    Rango de red local: $ip_rango"
+			echo "    Ubicando la PC con el escaner: $mac_disp"
 			buscar_h "$ip_rango" & PID=$! #simulate a long process
-			echo "Por favor espere..."
+			echo "    Por favor espere..."
 			printf "["
 			# While process is running...
 			while kill -0 $PID 2> /dev/null; do 
@@ -141,7 +141,7 @@ while  [ $opcion -ne 0 ]
 				sleep 1
 			done
 			printf "]"
-			echo "Búsqueda Completa"
+			echo "    Búsqueda Completa"
 			#Código de animación de espera tomado del usuario cosbor11 de stackoverflow.com
 			#Obtenido de https://stackoverflow.com/questions/12498304/using-bash-to-display-a-progress-indicator
 			opcion=0
@@ -170,12 +170,12 @@ then
     while  [ $opcion -ne 0 ]
 	do  
         banner
-        echo "Se ubicó la PC con el escaner en la IP: $ip_h"
+        echo " Se ubicó la PC con el escaner en la IP: $ip_h"
 		echo ""
 		printf "%1s\n" "${WHITE}-----------------${NORMAL}"
 		printf "%1s\n" "${LIME_YELLOW}    OPCIONES${NORMAL}"
 		printf "%1s\n" "${WHITE}-----------------${NORMAL}"
-        echo "Elija una opción y presione ENTER:"
+        echo "    Elija una opción y presione ENTER:"
 		echo ""
 	    echo "    P - Generar una vista previa del escaneo"
         echo "    E - Escanear el documento"
@@ -216,13 +216,13 @@ then
 
 			[Pp])
                 banner
-                echo "Se generará un escaneo rápido de vista previa."
-				printf "%1s\n" "${RED}Presione ENTER para comenzar${NORMAL}"                
+                echo "    Se generará un escaneo rápido de vista previa."
+				printf "%1s\n" "${RED}    Presione ENTER para comenzar${NORMAL}"                
 				echo ""
                 read ok
-                echo "Por favor espere..."
+                echo "    Por favor espere..."
                 
-                echo "Limpiando directorios de previsualización remotos y locales..."
+                echo "    Limpiando directorios de previsualización remotos y locales..."
                 rm ./prev/*
                 ssh -oStrictHostKeyChecking=no usuario@$ip_h "rm /home/usuario/escaneos/prev.pn?"
                 echo "Escaneando..."                
